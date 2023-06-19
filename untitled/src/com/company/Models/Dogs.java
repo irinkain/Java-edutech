@@ -3,8 +3,9 @@ package com.company.Models;
 public class Dogs extends Animals {
     private String barkWhat;
 
-    public void bark() {
+    public Animals bark() {
         System.out.println("WHAFF");
+        return new Animals();
     }
 
     public Dogs() {

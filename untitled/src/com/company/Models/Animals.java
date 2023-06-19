@@ -16,4 +16,7 @@ public class Animals {
         this.name = name;
         nameStatic = name;
     }
+    public void sayHello(){
+        System.out.println("Hello");
+    }
 }
