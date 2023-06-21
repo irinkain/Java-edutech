@@ -14,7 +14,7 @@ public class Circle {
             numberOfInstances++;
         }
         else {
-            throw new LimitException("THERE CAN BE NO MORE THAN FIVE CIRCLES HERE.");
+            throw new LimitException("GAMARJOBA AQ MOXDA EXCEPTION");
         }
         this.radius = radius;
     }

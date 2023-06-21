@@ -4,6 +4,9 @@ package com.company.StringOperations;
 import com.company.Exceptions.Circle;
 import com.company.Exceptions.LimitException;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Main {
     public static void main(String[] args) throws LimitException {
         // object initialization
@@ -11,6 +14,7 @@ public class Main {
 
         // literal initialization
         String sLiteral = "something";
+        //sLiteral = sLiteral.substring(0, 2);
         String sLiteral2 = "something";
         Character character = 'c';
         Character character2 = 'c';
@@ -20,17 +24,30 @@ public class Main {
         Circle c1 = new Circle(12);
         Circle c2 = new Circle(12);
 
-        System.out.println(c1 == c2); // false
-        System.out.println(int1 == int2); // true
-        System.out.println(sLiteral == sLiteral2); // true
-        System.out.println(character == character2); // false
+//        System.out.println(c1 == c2); // false
+//        System.out.println(int1.equals(int2)); // true
+//        System.out.println(sLiteral == sLiteral2); // true
+//        System.out.println(character == character2); // true
 
         String sentence = "I AM ALIVE";
+        char[] sentenceArray = sentence.toCharArray();
+        for (char c: sentenceArray
+             ) {
+            System.out.println(c);
+        }
+
+
+
         String sentence2 = "I AM ALIvE";
+//        System.out.println(sentence.toLowerCase());
+//        System.out.println(sentence2.toUpperCase());
 
         // from array of chars
-        char[] chars = {'а', 'b', 'с'};
+        char[] chars = {'t', 'b', 'p'};
         String sentenceFromArray = new String(chars);
+        System.out.println(sentenceFromArray);
+
+
 
         // length
         int lengthOfSentence = sentence.length(); // 11
@@ -64,7 +81,13 @@ public class Main {
 
         // split
         String bigSentence = "I am a java program and i've arrived to destroy c#";
-        String[] strArray = bigSentence.split(" ");
+        String sent = " I,Am,Irina,Inashvili";
+        String[] strArray1 = sent.trim().replace(" ","").split(",");
+        for (String str :
+                strArray1) {
+            System.out.println(str);
+        }
+        String[] strArray = bigSentence.split("([D-Z])\\w+");
         for (String str :
                 strArray) {
             System.out.println(str);
@@ -82,10 +105,25 @@ public class Main {
         String toBeAppended = ";Hello";
         if (toBeAppended.contains(";")) {
             toBeAppended = toBeAppended.replace(";", " ");
+            // Hello
             stringBuilder.append(toBeAppended);
         }
 
         System.out.println(stringBuilder);
+
+
+        String name = "Tazoooooooooooooooooooooooo studing Java";
+        System.out.println(name.toUpperCase().endsWith("TAZ"));
+        String phonematcher = "(555-\\d{3}-\\d{3})";
+        Pattern pattern = Pattern.compile(phonematcher);
+        String number = "555-888-777";
+        Matcher matcher = pattern.matcher(number);
+        if(matcher.find()){
+            System.out.println("fiiiind");
+        }
+        else {
+            System.out.println(" :( ");
+        }
 
     }
 }

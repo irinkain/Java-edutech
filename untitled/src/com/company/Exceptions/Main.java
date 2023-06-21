@@ -8,6 +8,7 @@ public class Main {
 //        System.out.println(10/0); // ისვრის ArithmeticExceptions
 //        Throwable throwable = new Throwable(); // სროლვადი Throwable არის უბრალო ობიექტი, თუ მას არ ვისვრით
 
+
         // მომხმარებლისგან ვითხოვთ მონაცემის შეტანას (10-ჯერ)
         int x = 0;
         while (x < 10){
@@ -17,29 +18,38 @@ public class Main {
             x++;
         }
 
-        Circle circle1 = new Circle(2);
-        Circle circle2 = new Circle(2);
-        Circle circle3 = new Circle(2);
-        Circle circle4 = new Circle(2);
-//        Circle circle5 = new Circle(2); // მეხუთე ობიექტი ვეღარ შეიქმნება, ლიმიტია 4.
-
+//        Circle circle1 = new Circle(2);
+//        Circle circle2 = new Circle(2);
+//        Circle circle3 = new Circle(2);
+//        Circle circle4 = new Circle(2);
+//        try {
+//            System.out.println("Irinka");
+////            System.out.println(10/0);
+//            Circle circle5 = new Circle(2);
+//        } catch (LimitException irina) {
+//            System.out.println(irina.getMessage() + "   Something went wrong - limiiit");
+//        } catch (ArithmeticException e) {
+//            System.out.println(e.getMessage() + "   Something went wrong, don't divide by zero");
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage() + "   Something went wrong - Usual exception");
+//        } finally {
+//            System.out.println("Gamarjoba, me yoveltvis aq var");
+//        }
     }
 
     /* ამ ფუნქციაში გამოსროლილ ექსეფშენებს ვიჭერთ
      * ამიტომ პროგრამა ჩვეულებრივად აგრძელებს execution-ს */
-    public static double division(double a, double b){
+    public static double division(double a, double b) {
         try {
-            if (b == 0){
+            if (b == 0) {
                 throw new ArithmeticException();
-            }
-            else {
+            } else {
                 return a / b;
             }
-        } catch (ArithmeticException runtimeException){
+        } catch (ArithmeticException runtimeException) {
             b = 1;
             return division(a, b);
-        }
-        finally {
+        } finally {
             System.out.println("I EXECUTE ALWAYS");
         }
     }
