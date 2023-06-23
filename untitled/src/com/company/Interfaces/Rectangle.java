@@ -33,10 +33,11 @@ public class Rectangle extends Figure implements IResizable, IColorizable{ // IS
     @Override
     public void colorize(String color) {
         this.color = color;
+        System.out.println("Hello my name is BLUE");
     }
 
     @Override
     public void paintCode(String code) {
-
+        System.out.println("Hello my name is RED");
     }
 }
